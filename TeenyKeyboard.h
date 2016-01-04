@@ -4,8 +4,8 @@
  * TODO: Make a proper file header. :-)
  * Modified for Digispark by Digistump
  */
-#ifndef __DigiKeyboard_h__
-#define __DigiKeyboard_h__
+#ifndef __TeenyKeyboard_h__
+#define __TeenyKeyboard_h__
 
 #include <Arduino.h>
 #include <avr/pgmspace.h>
@@ -129,9 +129,9 @@ const PROGMEM char usbHidReportDescriptor[USB_CFG_HID_REPORT_DESCRIPTOR_LENGTH] 
 #define KEY_ARROW_LEFT 0x50
 
 
-class DigiKeyboardDevice : public Print {
+class TeenyKeyboardDevice : public Print {
  public:
-  DigiKeyboardDevice () {
+  TeenyKeyboardDevice () {
     cli();
     usbDeviceDisconnect();
     _delay_ms(250);
@@ -207,7 +207,7 @@ class DigiKeyboardDevice : public Print {
   using Print::write;
 };
 
-DigiKeyboardDevice DigiKeyboard = DigiKeyboardDevice();
+TeenyKeyboardDevice TeenyKeyboard = TeenyKeyboardDevice();
 
 #ifdef __cplusplus
 extern "C"{
@@ -216,7 +216,7 @@ extern "C"{
 	uchar usbFunctionSetup(uchar data[8]) {
     usbRequest_t    *rq = (usbRequest_t *)((void *)data);
 
-    usbMsgPtr = DigiKeyboard.reportBuffer; //
+    usbMsgPtr = TeenyKeyboard.reportBuffer; //
     if ((rq->bmRequestType & USBRQ_TYPE_MASK) == USBRQ_TYPE_CLASS) {
       /* class request type */
 
@@ -247,4 +247,4 @@ extern "C"{
 #endif
 
 
-#endif // __DigiKeyboard_h__
+#endif // __TeenyKeyboard_h__
