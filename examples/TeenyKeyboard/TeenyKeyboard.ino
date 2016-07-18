@@ -1,5 +1,7 @@
 #include "TeenyKeyboard.h"
 
+//cocokeyboard example
+
 char key[] = {'I','Y','O','K','K','K','K','K','O','O','O','O','O'};
 
 int note;
