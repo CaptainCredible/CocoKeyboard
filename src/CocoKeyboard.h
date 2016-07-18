@@ -207,7 +207,7 @@ class CocoKeyboardDevice : public Print {
   using Print::write;
 };
 
-CocoKeyboardDevice CocoKeyboard = TeenyKeyboardDevice();
+CocoKeyboardDevice CocoKeyboard = CocoKeyboardDevice();
 
 #ifdef __cplusplus
 extern "C"{
